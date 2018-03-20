@@ -1,7 +1,7 @@
-<div class="property-list">
+<div class="property-item">
 
-  {.repeated section items}
-  <article class="entry h-entry {@|item-classes}" id="article-{id}" data-item-id="{id}">
+  {.section item}
+  <article class="entry h-entry {@|item-classes}{.main-image?} has-main-image{.end} clear" id="article-{id}" data-item-id="{id}">
 
     <header class="entry-header">
       <div class="meta-above-title">
@@ -27,7 +27,7 @@
         <a href="{fullUrl}" class="u-url" rel="bookmark">{title}</a>
       {.end}
       </h1>
-      <div class="meta-below-title">
+      <div class="meta-below-title {.section categories}{.or}no-categories{.end}">
         {.section author}
         <div class="entry-byline">
           <span class="entry-author"><a href="{collection.fullUrl}?author={author.id}" class="p-author author entry-byline-link" rel="author">{displayName}</a></span>
@@ -45,19 +45,9 @@
       </div>
     </header>
 
-    <div class="entry-content">
-      {.excerpt?}
-        {.main-image?}
-        <div class="excerpt-thumb">
-          <a href="{fullUrl}" class="excerpt-image content-fill"><img {@|image-meta} /></a>
-        </div>
-        {.end}
-        <div class="p-summary">{excerpt}</div>
-        <p class="entry-more-link"><a href="{fullUrl}"></a></p>
-      {.or}
-        {.section body}
-          <div class="e-content">{@}</div>
-        {.end}
+    <div class="entry-content e-content">
+      {.section body}
+        {@}
       {.end}
     </div>
 
@@ -73,23 +63,25 @@
       </p>
       {.end}
       <div class="entry-actions">
-        {.comments?}{.if websiteSettings.disqusShortname}{@|comment-link}{.or}
-        <a href="{fullUrl}#comments-{id}" class="entry-comments">{.section publicCommentCount}{@} Comment{@|pluralize}{.or}Comment{.end}</a>{.end}{.end}{@|like-button}{@|social-button-inline}
+        {@|like-button}{@|social-button-inline}
       </div>
     </footer>
 
     {.if postItemInjectCode}<div class="entry-injection">{postItemInjectCode}</div>{.end}
 
   </article>
+
+  <div id="comments-{id}" class="p-comment">
+    {.comments?}{@|comments}{.end}
+  </div>
+
   {.end}
 
   {.if pagination}
-  <nav class="pagination clear" data-paginate="scroll">
-    <div class="newer">{.if pagination.prevPage}<a href="{pagination.prevPageUrl}" rel="prev"><span class="prev-label">Newer Posts</span></a>{.end}</div><!-- comment the linebreak between these two elements because science
-        --><div class="older">{.if pagination.nextPage}<a href="{pagination.nextPageUrl}" rel="next"><span class="next-label">Older Posts</span></a>{.end}</div>
+  <nav class="pagination clear">
+    <div class="newer">{.if pagination.prevItem}<span class="prev-label">Newer Post</span><a href="{pagination.prevItem.fullUrl}" rel="prev"><span>{pagination.prevItem.title}</span></a>{.end}</div><!-- comment the linebreak between these two elements because science
+  --><div class="older">{.if pagination.nextItem}<span class="next-label">Older Post</span><a href="{pagination.nextItem.fullUrl}" rel="next"><span>{pagination.nextItem.title}</span></a>{.end}</div>
   </nav>
   {.end}
 
 </div>
-
-
