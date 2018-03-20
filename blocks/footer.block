@@ -1,0 +1,53 @@
+<footer class="Footer" role="contentinfo" data-controller="FooterBreakpoints">
+
+  <div class="Footer-inner clear">
+
+    <squarespace:block-field id="footerBlocksTop" class="Footer-blocks Footer-blocks--top sqs-alternate-block-style-container" columns="12" label="{localizedStrings.footerTopBlocks}" />
+
+    <div class="Footer-middle">
+      <div class="Footer-business">
+
+        {.if website.location.addressTitle || website.location.addressLine1 || website.location.addressLine2 || websiteSettings.contactPhoneNumber || websiteSettings.contactEmail}
+          <div class="Footer-business-info">
+            {.section website}
+              {.section location}
+                {.section addressTitle}<div class="Footer-business-info-item Footer-business-info-item--name">{@}</div>{.end}
+                {.if addressLine1}<div class="Footer-business-info-item">{addressLine1}{.if addressLine2 || addressCountry},{.end}</div>{.end}
+                {.if addressLine2}<div class="Footer-business-info-item">{addressLine2}{.if addressCountry},{.end}</div>{.end}
+                {.section addressCountry}<div class="Footer-business-info-item Footer-business-info-item--country">{@}</div>{.end}
+              {.end}
+            {.end}
+            {.section websiteSettings}
+              {.section contactPhoneNumber}<a href="tel:{@}" rel="tel" class="Footer-business-info-item Footer-business-info-item--phone">{@}</a>{.end}
+              {.section contactEmail}<a href="mailto:{@}" title="{@}" target="_blank" class="Footer-business-info-item Footer-business-info-item--email">{@}</a>{.end}
+            {.end}
+          </div>
+        {.end}
+
+        {.section websiteSettings}
+          {.section businessHours}
+            <div class="Footer-business-hours">
+              <div class="Footer-business-hours-heading">{localizedStrings.hours}</div>
+              {.section monday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.mon} {text}</div>{.end}{.end}
+              {.section tuesday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.tue} {text}</div>{.end}{.end}
+              {.section wednesday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.wed} {text}</div>{.end}{.end}
+              {.section thursday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.thu} {text}</div>{.end}{.end}
+              {.section friday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.fri} {text}</div>{.end}{.end}
+              {.section saturday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.sat} {text}</div>{.end}{.end}
+              {.section sunday}{.section text}<div class="Footer-business-hours-item">{localizedStrings.sun} {@}</div>{.end}{.end}
+            </div>
+          {.end}
+        {.end}
+
+      </div>
+
+      <squarespace:block-field id="footerBlocksMiddle" class="Footer-blocks Footer-blocks--middle sqs-alternate-block-style-container" columns="12" label="{localizedStrings.footerMiddleBlocks}" />
+
+      <squarespace:navigation navigationId="footerMainNavigation" template="footer-nav" />
+    </div>
+
+    <squarespace:block-field id="footerBlocksBottom" class="Footer-blocks Footer-blocks--bottom sqs-alternate-block-style-container" columns="12" label="{localizedStrings.footerBottomBlocks}" />
+
+  </div>
+
+</footer>

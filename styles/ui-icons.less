@@ -1,0 +1,223 @@
+@icon--caretLarge-width: 23px;
+@icon--caretLarge-height: 48px;
+@icon--caretSmall-width: 9px;
+@icon--caretSmall-height: 16px;
+@icon--close-width: 16px;
+@icon--hamburger-width: 24px;
+@icon--search-width: 20px;
+@icon--search--small-width: 15px;
+
+
+
+
+.Icon {
+
+
+
+  // -----------------------------------------
+
+  //  Sizes
+
+  &--bag {
+
+    width: 34px;
+    height: 38px;
+
+  }
+
+  &--bag-alt {
+
+    width: 28px;
+    height: 28px;
+
+  }
+
+
+  &--caretLarge--left,
+  &--caretLarge--right {
+
+    width: @icon--caretLarge-width;
+    height: 48px;
+
+  }
+
+
+  &--caretLarge--down {
+    width: 48px;
+    height: @icon--caretLarge-width;
+  }
+
+
+  &--caretSmall--left,
+  &--caretSmall--right {
+
+    width: @icon--caretSmall-width;
+    height: @icon--caretSmall-height;
+
+  }
+
+
+  &--cart {
+
+    width: 31px;
+    height: 26px;
+
+  }
+
+  &--user-accounts {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  &--cart-alt {
+
+    width: 28px;
+    height: 28px;
+
+  }
+
+
+  &--close {
+
+    width: @icon--close-width;
+    height: 16px;
+
+  }
+
+
+  &--plus {
+
+    width: 20px;
+    height: 20px;
+
+  }
+
+
+  &--squares-horizontal {
+
+    width: 25px;
+    height: 7px;
+
+  }
+
+
+  &--squares-vertical {
+
+    width: 7px;
+    height: 25px;
+
+  }
+
+
+  &--dots-horizontal {
+
+    width: 25px;
+    height: 7px;
+
+  }
+
+
+  &--dots-vertical {
+
+    width: 7px;
+    height: 25px;
+
+  }
+
+
+  &--hamburger {
+
+    width: @icon--hamburger-width;
+    height: 18px;
+
+  }
+
+
+  &--hotdog {
+
+    width: 24px;
+    height: 14px;
+
+  }
+
+
+  &--search {
+
+    width: @icon--search-width;
+    height: @icon--search-width;
+
+  }
+
+
+  &--search--small {
+
+    width: @icon--search--small-width;
+    height: @icon--search--small-width;
+
+  }
+
+
+
+  // -----------------------------------------
+
+  //  Weights
+
+  &--caretLarge--left,
+  &--caretLarge--right,
+  &--caretSmall--left,
+  &--caretSmall--right,
+  &--close,
+  &--search,
+  &--search--small {
+
+    .tweak-icon-weight-hairline & { stroke-width: 1; }
+    .tweak-icon-weight-light & { stroke-width: 2; }
+    .tweak-icon-weight-medium & { stroke-width: 3; }
+    .tweak-icon-weight-heavy & { stroke-width: 4; }
+
+  }
+
+
+  // Due to pixel rounding, we have 2 different
+  // SVGs for even and odd stroke widths for
+  // icons that have perfectly horizontal or
+  // vertical strokes.
+
+  &--bag,
+  &--bag-alt,
+  &--cart,
+  &--cart-alt,
+  &--dots-horizontal,
+  &--dots-vertical,
+  &--hamburger,
+  &--hotdog,
+  &--plus,
+  &--squares-horizontal,
+  &--squares-vertical,
+  &--user-accounts {
+
+    .tweak-icon-weight-hairline & {
+      stroke-width: 1;
+      .use--even { display: none; }
+    }
+
+    .tweak-icon-weight-light & {
+      stroke-width: 2;
+      .use--odd { display: none; }
+    }
+
+    .tweak-icon-weight-medium & {
+      stroke-width: 3;
+      .use--even { display: none; }
+    }
+
+    .tweak-icon-weight-heavy & {
+      stroke-width: 4;
+      .use--odd { display: none; }
+    }
+
+  }
+
+}
+

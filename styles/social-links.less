@@ -1,0 +1,160 @@
+
+// tweak: { "category" : "Social Icons", "label" : "Size", "title" : "tweak-social-icons-size", "type" : "value", "step" : 1, "min" : 8, "max" : 120, "target" : ".SocialLinks", "showOnlyWhenPresent": ".SocialLinks" }
+@tweak-social-icons-size: 40px;
+
+// tweak: { "category" : "Social Icons", "label" : "Style", "title" : "tweak-social-icons-style", "type" : "dropdown", "options" : [ "Regular", "Border", "Knockout", "Solid" ], "default" : "Solid", "target" : ".SocialLinks", "showOnlyWhenPresent" : ".SocialLinks" }
+
+// tweak: { "category" : "Social Icons", "label" : "Shape", "title" : "tweak-social-icons-shape", "type" : "dropdown", "options" : [ "Square", "Rounded", "Circle" ], "default" : "Square", "target" : ".SocialLinks", "showOnlyWhenPresent" : "body:not(.tweak-social-icons-style-regular) .SocialLinks" }
+
+// tweak: { "category" : "Social Icons", "label" : "Color", "title" : "tweak-social-icons-color", "type" : "color", "target" : ".SocialLinks", "showOnlyWhenPresent" : ".SocialLinks" }
+@tweak-social-icons-color: #dddddd;
+
+
+.mixin-social-icons-solid-color(@c) when (lightness(@c) >= 60%) {
+  fill: #222222;
+}
+.mixin-social-icons-solid-color(@c) when (lightness(@c) < 60%) {
+  fill: #ffffff;
+}
+.mixin-social-icons-solid-color-faded(@c) when (lightness(@c) >= 60%) {
+  fill: fade(#222222, 40%);
+}
+.mixin-social-icons-solid-color-faded(@c) when (lightness(@c) < 60%) {
+  fill: fade(#ffffff, 40%);
+}
+
+.SocialLinks {
+
+  @anim-duration: 170ms;
+  @anim-easing: ease-in-out;
+
+  overflow: hidden;
+
+  &-inner {
+    line-height: 0;
+  }
+
+  &-link {
+    display: inline-block;
+    position: relative;
+    width: @tweak-social-icons-size;
+    height: @tweak-social-icons-size;
+    margin: @tweak-social-icons-size * 0.13;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color @anim-duration @anim-easing;
+
+    .tweak-social-icons-style-regular & {
+      margin: @tweak-social-icons-size * 0.295;
+    }
+
+    // Shape
+    .tweak-social-icons-shape-circle & { border-radius: 50%; }
+    .tweak-social-icons-shape-rounded & { border-radius: 15%; }
+
+    // Style
+    .tweak-social-icons-style-regular & {
+      transform: scale(2);
+      border-radius: 0;
+    }
+    .tweak-social-icons-style-border & {
+      box-sizing: border-box;
+      border: 2px solid;
+    }
+
+    > div,
+    &-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-link-mask,
+  &-link-icon {
+    fill: transparent;
+    transition: fill @anim-duration @anim-easing;
+  }
+}
+
+.mixin-template-social-icons-style-regular(@color) {
+  @fade: 0.4;
+  @color-faded: rgba(red(@color), green(@color), blue(@color), alpha(@color) * @fade);
+  .SocialLinks-link-icon { fill: @color; }
+  .SocialLinks:hover {
+    .SocialLinks-link-icon { fill: @color-faded; }
+    .SocialLinks-link:hover .SocialLinks-link-icon { fill: @color; }
+  }
+}
+
+.mixin-template-social-icons-style-border(@color) {
+  .SocialLinks-link { border-color: @color; }
+  .SocialLinks-link-icon { fill: @color; }
+  .SocialLinks-link:hover {
+    background-color: @color;
+    .SocialLinks-link-icon {
+      .mixin-social-icons-solid-color(@color);
+    }
+  }
+}
+
+.mixin-template-social-icons-style-knockout(@color) {
+  @fade: 0.4;
+  @color-faded: rgba(red(@color), green(@color), blue(@color), alpha(@color) * @fade);
+  .SocialLinks-link-mask { fill: @color; }
+  .SocialLinks:hover {
+    .SocialLinks-link-mask { fill: @color-faded; }
+    .SocialLinks-link:hover .SocialLinks-link-mask { fill: @color; }
+  }
+}
+
+.mixin-template-social-icons-style-solid(@color) {
+  @fade: 0.4;
+  @color-faded: rgba(red(@color), green(@color), blue(@color), alpha(@color) * @fade);
+  .SocialLinks-link { background-color: @color; }
+  .SocialLinks-link-icon { .mixin-social-icons-solid-color(@color); }
+  .SocialLinks:hover {
+    .SocialLinks-link { background-color: @color-faded; }
+    .SocialLinks-link-icon { .mixin-social-icons-solid-color-faded(@color); }
+    .SocialLinks-link:hover { background-color: @color; }
+    .SocialLinks-link:hover .SocialLinks-link-icon { .mixin-social-icons-solid-color(@color); }
+  }
+}
+
+
+
+.mixin-template-social-icons-color(@color) {
+  .tweak-social-icons-style-regular & {
+    .mixin-template-social-icons-style-regular(@color);
+  }
+  .tweak-social-icons-style-border & {
+    .mixin-template-social-icons-style-border(@color);
+  }
+  .tweak-social-icons-style-knockout & {
+    .mixin-template-social-icons-style-knockout(@color);
+  }
+  .tweak-social-icons-style-solid & {
+    .mixin-template-social-icons-style-solid(@color);
+  }
+}
+
+.mixin-template-social-icons-color-body(@color) {
+  &.tweak-social-icons-style-regular {
+    .mixin-template-social-icons-style-regular(@color);
+  }
+  &.tweak-social-icons-style-border {
+    .mixin-template-social-icons-style-border(@color);
+  }
+  &.tweak-social-icons-style-knockout {
+    .mixin-template-social-icons-style-knockout(@color);
+  }
+  &.tweak-social-icons-style-solid {
+    .mixin-template-social-icons-style-solid(@color);
+  }
+}
+
+
+.mixin-template-social-icons-color(@tweak-social-icons-color);

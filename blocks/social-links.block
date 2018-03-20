@@ -1,0 +1,15 @@
+{.section website}
+  <nav class="SocialLinks" data-content-field="connected-accounts">
+    <div class="SocialLinks-inner">
+    {.repeated section socialAccounts}<a href="{profileUrl}" target="_blank" class="SocialLinks-link {serviceName}" style="">
+        <div>
+          <svg class="SocialLinks-link-svg" viewBox="0 0 64 64">
+            {# Squarespace will output an SVG at the end of body with <symbol> elements for each icon and mask}
+            <use class="SocialLinks-link-icon" xlink:href="#{serviceName}-icon"></use>
+            <use class="SocialLinks-link-mask" xlink:href="#{serviceName}-mask"></use>
+          </svg>
+        </div>
+      </a>{.end}
+    </div>
+  </nav>
+{.end}

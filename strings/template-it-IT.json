@@ -1,0 +1,18 @@
+{
+  "prev" : "Indietro",
+  "next" : "Avanti",
+  "cart" : "Carrello",
+  "back" : "Indietro",
+  "search" : "Cerca",
+  "scroll" : "Scorrere",
+  "hours" : "Orari",
+  "mon" : "Lun",
+  "tue" : "Mar",
+  "wed" : "Mer",
+  "thu" : "Gio",
+  "fri" : "Ven",
+  "sat" : "Sab",
+  "sun" : "Dom",
+  "signIn" : "Accedi",
+  "myAccount" : "Il mio account"
+}

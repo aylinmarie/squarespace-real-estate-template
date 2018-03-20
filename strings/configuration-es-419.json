@@ -1,0 +1,28 @@
+{
+  "template" : {
+    "Main Navigation" : "Navegación Principal",
+    "Secondary Navigation" : "Navegación Secundaria",
+    "Footer Main Navigation" : "Área de Pie de Página",
+    "Default" : "Predeterminado"
+  },
+  "album" : {
+    "Album" : "Álbum",
+    "Add Track" : "Añade una Pista"
+  },
+  "blog" : {
+    "Blog" : "Blog",
+    "Add Post" : "Añade una Entrada"
+  },
+  "events" : {
+    "Events" : "Eventos",
+    "Add Event" : "Añade un Evento"
+  },
+  "folders" : {
+    "Folder" : "Carpeta",
+    "Add Page" : "Añade una Página"
+  },
+  "index" : {
+    "Index" : "Índice",
+    "Add Section" : "Añade una Sección"
+  }
+}

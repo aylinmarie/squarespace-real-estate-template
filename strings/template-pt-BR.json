@@ -1,0 +1,18 @@
+{
+  "prev" : "Anterior",
+  "next" : "Próximo",
+  "cart" : "Carrinho",
+  "back" : "Voltar",
+  "search" : "Busca",
+  "scroll" : "rolar",
+  "hours" : "Horas",
+  "mon" : "Seg",
+  "tue" : "Ter",
+  "wed" : "Qua",
+  "thu" : "Qui",
+  "fri" : "Sex",
+  "sat" : "Sáb",
+  "sun" : "Dom",
+  "signIn" : "Entrar",
+  "myAccount" : "Minha Conta"
+}
