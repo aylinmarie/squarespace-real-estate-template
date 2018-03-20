@@ -1,7 +1,7 @@
 <div class="property-item">
 
   {.section item}
-  <article class="entry h-entry {@|item-classes}{.featImg?} has-featImg{.end} clear" id="article-{id}" data-item-id="{id}">
+  <article class="entry h-entry {@|item-classes}{.main-image?} has-main-image{.end} clear" id="article-{id}" data-item-id="{id}">
 
     <header class="entry-header">
       <div class="meta-above-title">
@@ -43,6 +43,10 @@
     <div class="entry-content e-content">
       {.section body}
         {@}
+      {.end}
+
+      {.section customContent}
+        {price}
       {.end}
     </div>
 
