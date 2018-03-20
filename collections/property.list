@@ -5,13 +5,13 @@
 
     <header class="entry-header">
       <div class="meta-above-title">
-        {.section author}
+<!--         {.section author}
         <div class="entry-byline">
           <span class="entry-author"><a href="{collection.fullUrl}?author={author.id}" class="p-author author entry-byline-link" rel="author">{displayName}</a></span>
         </div>
-        {.end}
+        {.end} -->
         <div class="entry-dateline">
-          <time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a></time>
+          <time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><a href="{fullUrl}" class="entry-dateline-link">Posted: {addedOn|date %B %e, %Y}</a></time>
           {.if updatedOn}<time class="dt-updated updated" datetime="{updatedOn|date %F}"></time>{.end}
         </div>
         {.section categories}
@@ -28,11 +28,11 @@
       {.end}
       </h1>
       <div class="meta-below-title">
-        {.section author}
+<!--         {.section author}
         <div class="entry-byline">
           <span class="entry-author"><a href="{collection.fullUrl}?author={author.id}" class="p-author author entry-byline-link" rel="author">{displayName}</a></span>
         </div>
-        {.end}
+        {.end} -->
         <div class="entry-dateline">
           <time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a></time>
           {.if updatedOn}<time class="dt-updated updated" datetime="{updatedOn|date %F}"></time>{.end}
