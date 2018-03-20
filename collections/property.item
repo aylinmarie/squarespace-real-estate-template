@@ -1,4 +1,4 @@
-<div class="property-item">
+<div class="property-item" style="width: 75%; margin: auto;">
   {.section item}
   <article class="entry h-entry {@|item-classes}{.main-image?} has-main-image{.end} clear" id="article-{id}" data-item-id="{id}">
 
@@ -37,9 +37,18 @@
       
       <!-- Custom Data -->
       {.section customContent}
-      <script>console.log({@|json-pretty})</script>
-      <h2>Listing Price: {price}</h2>
-      <h4>Bed: {bed} | Bath: {bath} | Square Footage: {sqft} </h4>
+        <script>console.log({@|json-pretty})</script>
+        <h2>{address}</h2>
+        <div class="featured-list" style="text-align: center;">
+          <img src="{featImg.assetUrl}" style="max-width: 100%;" />
+        </div>
+        <h2>Listing Price: {price}</h2>
+        <h4>{bed} Beds | {bath} Baths | {sqft} sqft</h4>
+        <!-- <div class="row">
+          <div class="col-lg-4 amd-callout"> hey hey</div>
+          <div class="col-lg-4 amd-callout"> hey hey</div>
+          <div class="col-lg-4 amd-callout"> hey hey</div>
+        </div> -->
 
       {.end}
     </div>
