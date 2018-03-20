@@ -5,11 +5,6 @@
 
     <header class="entry-header">
       <div class="meta-above-title">
-        {.section author}
-        <div class="entry-byline">
-          <span class="entry-author"><a href="{collection.fullUrl}?author={author.id}" class="p-author author entry-byline-link" rel="author">{displayName}</a></span>
-        </div>
-        {.end}
         <div class="entry-dateline">
           <time class="dt-published published entry-date" datetime="{addedOn|date %F}" pubdate><a href="{fullUrl}" class="entry-dateline-link">{addedOn|date %B %e, %Y}</a></time>
           {.if updatedOn}<time class="dt-updated updated" datetime="{updatedOn|date %F}"></time>{.end}
@@ -52,6 +47,11 @@
     </div>
 
     <footer class="entry-footer clear">
+      {.section author}
+        <div class="entry-byline">
+          <span class="entry-author"><a href="{collection.fullUrl}?author={author.id}" class="p-author author entry-byline-link" rel="author">Listed by {displayName}</a></span>
+        </div>
+      {.end}
       {.section sourceUrl}
       <p class="entry-source">
         Source: <a href="{sourceUrl}" target="_blank">{sourceUrl}</a>
