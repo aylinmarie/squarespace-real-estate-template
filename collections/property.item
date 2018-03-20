@@ -49,6 +49,15 @@
           <div class="col-lg-4 amd-callout"> hey hey</div>
           <div class="col-lg-4 amd-callout"> hey hey</div>
         </div> -->
+          <div class="container-fluid">
+            <div class="row">
+              {.repeated section listGallery}
+                  <div class="col-lg-4" style="overflow: hidden;">
+                   <img src="{assetUrl}" class="img-responsive" style="width: 100%; height: 300px;">
+                 </div>
+              {.end}
+            </div>
+          </div>
 
       {.end}
     </div>
