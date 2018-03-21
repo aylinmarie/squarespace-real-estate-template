@@ -44,20 +44,15 @@
         </div>
         <h2>Listing Price: {price}</h2>
         <h4>{bed} Beds | {bath} Baths | {sqft} sqft</h4>
-        <!-- <div class="row">
-          <div class="col-lg-4 amd-callout"> hey hey</div>
-          <div class="col-lg-4 amd-callout"> hey hey</div>
-          <div class="col-lg-4 amd-callout"> hey hey</div>
-        </div> -->
-          <div class="container-fluid">
-            <div class="row">
-              {.repeated section listGallery}
-                  <div class="col-lg-4" style="overflow: hidden;">
-                   <img src="{assetUrl}" class="img-responsive" style="width: 100%; height: 300px;">
-                 </div>
-              {.end}
-            </div>
-          </div>
+        
+        
+        {.repeated section items}
+          <article>
+            {.image?}<img {@|image-meta} data-load="false" />{.end}
+            {.section title}<h1>{@}</h1>{.end}
+            {.section body}<div>{@}</div>{.end}
+          </article>
+        {.end}
 
       {.end}
     </div>
